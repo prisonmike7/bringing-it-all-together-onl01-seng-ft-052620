@@ -50,8 +50,8 @@ class Dog
     sql = <<-SQL
       SELECT * FROM dogs WHERE id = ?;
       SQL
-    dog = DB[:conn].execute(sql, id).flatten
-    Dog.new_from_db(dog)
+    selected_dog = DB[:conn].execute(sql, id).flatten
+    Dog.new_from_db(selected_dog)
   end
 
   def self.find_or_create_by(hash)
