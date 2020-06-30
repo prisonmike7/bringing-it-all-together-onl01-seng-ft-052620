@@ -71,8 +71,8 @@ class Dog
     sql = <<-SQL
       SELECT * FROM dogs WHERE name =?;
       SQL
-    dog = DB[:conn].execute(sql, name).flatten
-    Dog.new_from_db(dog)
+    selected_dog = DB[:conn].execute(sql, name).flatten
+    Dog.new_from_db(selected_dog)
   end
 
   def update
